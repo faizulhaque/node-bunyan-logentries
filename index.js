@@ -1,6 +1,6 @@
 'use strict';
 
-var logentries = require('le_node'),
+var logentries = require('r7insight_node'),
   Stream = require('stream').Stream,
   util = require('util'),
   LBS;
@@ -28,6 +28,7 @@ function LogentriesBunyanStream(config, options) {
   this.writable = true;
 
   config.levels = config.levels || ['debug', 'info', 'notice', 'warning', 'err', 'crit', 'alert', 'emerg'];
+  config.region = config.region || 'eu'; // Hardcoded value is specific too our requirement
   this._logger = new logentries(config);
 }
 
